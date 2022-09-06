@@ -14,11 +14,11 @@ class OkashiData: ObservableObject{
         //JSONのitem内のデータ構造
         struct Item: Codable {
             //お菓子の名称
-            let name = String?
+            let name: String?
             //URL
-            let url = URL?
+            let url: URL?
             //画像URL
-            let image = URL?
+            let image: URL?
             
         }
         //複数要素
