@@ -6,6 +6,14 @@
 //
 
 import Foundation
+import UIKit
+
+struct OkashiItem: Identifiable {
+    let id = UUID()
+    let name: String
+    let link: URL
+    let image: URL
+}
 
 //お菓子データ検索用クラス
 class OkashiData: ObservableObject{
@@ -24,6 +32,9 @@ class OkashiData: ObservableObject{
         //複数要素
         let item: [Item]?
     }
+    
+    //お菓子のリスト(Identifiableプロトコル)
+    @Published var okashiList: [OkashiItem] = []
     
     //Web API検索用メソッド　第一引数: keyword 検索したいワード
     func searchOkashi(keyword: String) async {
