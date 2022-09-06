@@ -40,5 +40,21 @@ class OkashiData: ObservableObject{
             return
         }
         print(req_url)
+        
+        do {
+            //リクエストURLからダウンロード
+            let (data , _) = try await URLSession.shared.data(from: req_url)
+            
+            //JSONDecoderのインスタンスを取得
+            let decoder = JSONDecoder()
+            //受け取ったJSONデータをパス（解折）して格納
+            let json = try decoder.decode(ResultJson.self, from: data)
+            
+            print(json)
+            
+        } catch {
+            //エラー処理
+            print("エラーが出ました")
+        }
     }
 }
