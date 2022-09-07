@@ -12,6 +12,7 @@
 		BA3FC13128C5A1A200196D58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA3FC13028C5A1A200196D58 /* Assets.xcassets */; };
 		BA3FC13428C5A1A200196D58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA3FC13328C5A1A200196D58 /* Preview Assets.xcassets */; };
 		BA3FC13B28C5A20D00196D58 /* OkashiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FC13A28C5A20D00196D58 /* OkashiData.swift */; };
+		BAA4617428C8E6DE003A7DA5 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4617328C8E6DE003A7DA5 /* SafariView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		BA3FC13328C5A1A200196D58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BA3FC13A28C5A20D00196D58 /* OkashiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkashiData.swift; sourceTree = "<group>"; };
 		BAA4617228C70D73003A7DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BAA4617328C8E6DE003A7DA5 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				BAA4617228C70D73003A7DA5 /* Info.plist */,
 				BA3FC12C28C5A19F00196D58 /* MyOkashiApp.swift */,
 				BA3FC12E28C5A19F00196D58 /* ContentView.swift */,
+				BAA4617328C8E6DE003A7DA5 /* SafariView.swift */,
 				BA3FC13A28C5A20D00196D58 /* OkashiData.swift */,
 				BA3FC13028C5A1A200196D58 /* Assets.xcassets */,
 				BA3FC13228C5A1A200196D58 /* Preview Content */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA4617428C8E6DE003A7DA5 /* SafariView.swift in Sources */,
 				BA3FC12F28C5A19F00196D58 /* ContentView.swift in Sources */,
 				BA3FC13B28C5A20D00196D58 /* OkashiData.swift in Sources */,
 				BA3FC12D28C5A19F00196D58 /* MyOkashiApp.swift in Sources */,
