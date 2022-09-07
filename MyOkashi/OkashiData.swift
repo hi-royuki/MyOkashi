@@ -15,6 +15,7 @@ struct OkashiItem: Identifiable {
     let image: URL
 }
 
+
 //お菓子データ検索用クラス
 class OkashiData: ObservableObject{
     //JSONのデータ構造
@@ -61,7 +62,33 @@ class OkashiData: ObservableObject{
             //受け取ったJSONデータをパス（解折）して格納
             let json = try decoder.decode(ResultJson.self, from: data)
             
-            print(json)
+            //print(json)
+            
+            //お菓子の情報が取得できているか確認
+            guard let items = json.item else { return }
+            //@publishedの変数を更新するときはメインスレッドで更新する必要がある
+            DispatchQueue.main.async {
+                //お菓子のリストを初期化
+                self.okashiList.removeAll()
+            }
+            //取得しているお菓子の数だけ処理
+            for item in items {
+                //お菓子の名称、掲載URL、画像URLをアンラップ
+                if let name = item.name,
+                   let link = item.url,
+                   let image = item.image {
+                    //一つのお菓子えお構造体でまとめて管理
+                    let okashi = OkashiItem(name: name, link: link, image: image)
+                    //@Publishedの変数を更新するときはメインスレッドで更新する必要がある
+                    DispatchQueue.main.async {
+                        //お菓子の配列へ追加
+                        self.okashiList.append(okashi)
+                    }
+                }
+                print(self.okashiList)
+            }
+            
+            
             
         } catch {
             //エラー処理
