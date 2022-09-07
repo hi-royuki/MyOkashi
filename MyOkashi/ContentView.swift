@@ -30,7 +30,27 @@ struct ContentView: View {
                 .submitLabel(.search)
                 //上下左右に変換
                 .padding()
-            
+            //リスト表示する
+            List(okashiDataList.okashiList) { okashi in
+                //1つ１つの要素が取り出される
+                //水平にレイアウト
+                HStack {
+                    //画像を読み込み、表示する
+                    AsyncImage(url: okashi.image) { image in
+                    //画像を表示する
+                        image
+                        //リサイズする
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 40)
+                    } placeholder: {
+                        //読み込み中はインジケーターを表示する
+                        ProgressView()
+                    }
+                    Text(okashi.name)
+                    
+                }
+            }
         }//VStack
     }//body
 }

@@ -77,7 +77,7 @@ class OkashiData: ObservableObject{
                     if let name = item.name,
                        let link = item.url,
                        let image = item.image {
-                        //一つのお菓子えお構造体でまとめて管理
+                        //一つのお菓子を構造体でまとめて管理
                         let okashi = OkashiItem(name: name, link: link, image: image)
                             //お菓子の配列へ追加
                             self.okashiList.append(okashi)
