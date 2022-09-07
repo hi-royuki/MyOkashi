@@ -12,6 +12,8 @@ struct ContentView: View {
     @StateObject var okashiDataList = OkashiData()
     //入力された文字列を保持する状態変数
     @State var inputText = ""
+    //SafariViewの表示有無を管理する変数
+    @State var showSafari = false
     
     
     var body: some View {
@@ -33,23 +35,33 @@ struct ContentView: View {
             //リスト表示する
             List(okashiDataList.okashiList) { okashi in
                 //1つ１つの要素が取り出される
-                //水平にレイアウト
-                HStack {
-                    //画像を読み込み、表示する
-                    AsyncImage(url: okashi.image) { image in
-                    //画像を表示する
-                        image
-                        //リサイズする
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 40)
-                    } placeholder: {
-                        //読み込み中はインジケーターを表示する
-                        ProgressView()
+                //ボタンを用意する
+                Button(action: {
+                    //SafariViewを表示する
+                    showSafari.toggle()
+                }) {
+                    //水平にレイアウト
+                    HStack {
+                        //画像を読み込み、表示する
+                        AsyncImage(url: okashi.image) { image in
+                        //画像を表示する
+                            image
+                            //リサイズする
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 40)
+                        } placeholder: {
+                            //読み込み中はインジケーターを表示する
+                            ProgressView()
+                        }
+                        Text(okashi.name)
+                        
                     }
-                    Text(okashi.name)
-                    
                 }
+                .sheet(isPresented: self.$showSafari, content: {
+                    SafariView(url: okashi.link)
+                        .edgesIgnoringSafeArea(.bottom)
+                })
             }
         }//VStack
     }//body
